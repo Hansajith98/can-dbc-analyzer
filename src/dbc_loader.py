@@ -145,7 +145,7 @@ if __name__ == "__main__":
     )
     
     try:
-        db = load_dbc("dbc/example_vehicle.dbc")
+        db = load_dbc("dbc/sample_vehicle_data.dbc")
         print_dbc_info(db)
         
         test_signals = ["Speed", "RPM", "EngineTemp"]
