@@ -1,0 +1,90 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_SGTYPE_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ECU_Engine ECU_Transmission ECU_Body Gateway
+
+BO_ 256 EngineData: 8 ECU_Engine
+ SG_ RPM : 0|16@1+ (0.25,0) [0|8000] "RPM" Gateway
+ SG_ EngineTemp : 16|8@1+ (1,-40) [-40|200] "°C" Gateway
+ SG_ ThrottlePosition : 24|8@1+ (0.4,0) [0|100] "%" Gateway
+ SG_ EngineLoad : 32|8@1+ (0.4,0) [0|100] "%" Gateway
+
+BO_ 512 VehicleSpeed: 8 ECU_Transmission
+ SG_ Speed : 0|16@1+ (0.01,0) [0|250] "km/h" Gateway
+ SG_ GearPosition : 16|8@1+ (1,0) [0|8] "" Gateway
+ SG_ TransmissionTemp : 24|8@1+ (1,-40) [-40|150] "°C" Gateway
+
+BO_ 768 BrakeData: 8 ECU_Body
+ SG_ BrakePressure : 0|16@1+ (0.1,0) [0|200] "bar" Gateway
+ SG_ BrakeStatus : 16|8@1+ (1,0) [0|3] "" Gateway
+ SG_ ABS_Active : 24|1@1+ (1,0) [0|1] "" Gateway
+
+BO_ 1024 BatteryStatus: 8 ECU_Body
+ SG_ BatteryVoltage : 0|16@1+ (0.01,0) [0|20] "V" Gateway
+ SG_ BatteryCurrent : 16|16@1- (0.1,0) [-100|100] "A" Gateway
+ SG_ BatteryTemp : 32|8@1+ (1,-40) [-40|100] "°C" Gateway
+
+BO_ 1280 SteeringAngle: 8 ECU_Body
+ SG_ SteeringAngle : 0|16@1- (0.1,0) [-600|600] "deg" Gateway
+ SG_ SteeringSpeed : 16|16@1- (0.5,0) [-500|500] "deg/s" Gateway
+
+
+
+CM_ SG_ 256 RPM "Engine revolutions per minute";
+CM_ SG_ 256 EngineTemp "Engine coolant temperature";
+CM_ SG_ 256 ThrottlePosition "Accelerator pedal position";
+CM_ SG_ 256 EngineLoad "Current engine load percentage";
+CM_ SG_ 512 Speed "Vehicle speed from transmission sensor";
+CM_ SG_ 512 GearPosition "Current gear (0=N, 1-6=Gears, 7=R, 8=P)";
+CM_ SG_ 768 BrakePressure "Hydraulic brake pressure";
+CM_ SG_ 768 ABS_Active "Anti-lock braking system status";
+CM_ SG_ 1024 BatteryVoltage "12V battery voltage";
+CM_ SG_ 1024 BatteryCurrent "Battery current (+ charging, - discharging)";
+CM_ SG_ 1280 SteeringAngle "Steering wheel angle from center";
+
+BA_DEF_ "BusType" STRING ;
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 10000;
+BA_DEF_ SG_ "GenSigStartValue" FLOAT 0 100000000000;
+
+BA_DEF_DEF_ "BusType" "CAN";
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_DEF_DEF_ "GenSigStartValue" 0;
+
+BA_ "GenMsgCycleTime" BO_ 256 10;
+BA_ "GenMsgCycleTime" BO_ 512 20;
+BA_ "GenMsgCycleTime" BO_ 768 50;
+BA_ "GenMsgCycleTime" BO_ 1024 100;
+BA_ "GenMsgCycleTime" BO_ 1280 20;
+
+VAL_ 512 GearPosition 0 "Neutral" 1 "Gear_1" 2 "Gear_2" 3 "Gear_3" 4 "Gear_4" 5 "Gear_5" 6 "Gear_6" 7 "Reverse" 8 "Park" ;
+VAL_ 768 BrakeStatus 0 "Released" 1 "Applied" 2 "Emergency" 3 "Fault" ;
+VAL_ 768 ABS_Active 0 "Inactive" 1 "Active" ;
