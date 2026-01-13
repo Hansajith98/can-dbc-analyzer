@@ -1,0 +1,18 @@
+# CAN Bus DBC Signal Decoder - Dependencies
+# Python 3.10+ required
+
+# CAN bus handling
+python-can==4.3.1
+
+# DBC file parsing and CAN message decoding
+cantools==39.4.5
+
+# Data manipulation and analysis
+pandas
+
+# Plotting and visualization
+matplotlib
+
+# Standard library enhancements (already included in Python 3.10+)
+# argparse - command line interface
+# logging - application logging
