@@ -4,11 +4,10 @@ A professional Python-based tool for decoding and analyzing CAN bus data from au
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.10+-green.svg)
-![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [What is CAN Bus?](#-what-is-can-bus)
@@ -17,11 +16,6 @@ A professional Python-based tool for decoding and analyzing CAN bus data from au
 - [Project Structure](#-project-structure)
 - [Installation](#-installation)
 - [Quick Start](#-quick-start)
-- [Usage Examples](#-usage-examples)
-- [Command-Line Reference](#-command-line-reference)
-- [Understanding the Output](#-understanding-the-output)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
 
 ---
 
