@@ -19,7 +19,7 @@ A professional Python-based tool for decoding and analyzing CAN bus data from au
 
 ---
 
-## 🎯 Overview
+## Overview
 
 This project provides a complete toolchain for automotive CAN bus analysis:
 
