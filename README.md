@@ -1,6 +1,6 @@
 # CAN Bus DBC Signal Decoder and Analyzer
 
-A professional Python-based tool for decoding and analyzing CAN bus data from automotive networks using DBC (Database CAN) files.
+A Python-based tool for decoding and analyzing CAN bus data from automotive networks using DBC (Database CAN) files.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.10+-green.svg)
